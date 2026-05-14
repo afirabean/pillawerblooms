@@ -57,7 +57,7 @@ https://templatemo.com/tm-613-frost-bakery
     <li><a href="#catering"><span class="nav-icon">💬</span> Rekomendasi</a></li>
     <li><a href="#seasonal"><span class="nav-icon">🔥</span> Film Terbaru</a></li>
     <li><a href="#loyalty"><span class="nav-icon">👤</span> Tentang</a></li>
-    <li><a href="login/loginpage/"><span class="nav-icon">🔑</span> Login</a></li>
+    <li><a href="login/loginpage/" id="loginBtn"><span class="nav-icon">🔑</span> Login</a></li>
   </ul>
 </nav>
     <div class="sidebar__footer">
@@ -690,5 +690,21 @@ https://templatemo.com/tm-613-frost-bakery
   </main>
   <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
   <script src="templatemo-frost-script.js"></script>
+  
+<script>
+const loginBtn = document.getElementById("loginBtn");
+const username = localStorage.getItem("username");
+
+if(username){
+    loginBtn.innerHTML = "Logout (" + username + ")";
+    loginBtn.href = "#";
+
+    loginBtn.addEventListener("click", function(){
+        localStorage.removeItem("username");
+        window.location.reload();
+    });
+}
+</script>
+
 </body>
 </html>
